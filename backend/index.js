@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json());
+
 app.get("/upeim/api/get-all-employees", (req, res) => {
   res.send("json de empleados");
 });
