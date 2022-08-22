@@ -1,4 +1,8 @@
 const express = require("express");
+const upeimDatabase = require("./database.js");
+
+const dataBaseName = "./upeim.db";
+upeimDatabase.generateIfDoesntExist(dataBaseName);
 
 const app = express();
 
