@@ -4,8 +4,16 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/upeim/api/get-all-employees", (req, res) => {
-  res.send("json de empleados");
+app.get("/upeim/api/get-all-employees", async (req, res) => {
+  await upeimDatabase.getEmployees(dataBaseName, res);
+});
+
+app.post("/upeim/api/get-employee-by-name", async (req, res) => {
+  await upeimDatabase.getEmployeesByName(
+    dataBaseName,
+    res,
+    req.body.nombreCompleto
+  );
 });
 
 app.post("/upeim/api/add-employee", (req, res) => {});
