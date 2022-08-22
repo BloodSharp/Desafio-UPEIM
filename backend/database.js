@@ -53,9 +53,9 @@ function generateIfDoesntExist(dataBaseName) {
         }
       );
       if (dataBase != null) {
-        dataBase.run(createEmployeesTable);
-
         dataBase.run(createOfficeTable);
+
+        dataBase.run(createEmployeesTable);
 
         dataBase.close();
       }
@@ -75,9 +75,9 @@ function generateIfDoesntExist(dataBaseName) {
       }
     );
     if (dataBase != null) {
-      dataBase.run(createEmployeesTable);
-
       dataBase.run(createOfficeTable);
+
+      dataBase.run(createEmployeesTable);
 
       dataBase.close();
     }
