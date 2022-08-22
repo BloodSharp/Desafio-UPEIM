@@ -112,3 +112,26 @@ function insertEmployee(
   }
   return returnValue;
 }
+
+function getEmployees(dataBaseName) {
+  let returnValue = null;
+  dataBase = new sqlite3.Database(
+    dataBaseName,
+    sqlite3.OPEN_READWRITE,
+    (err) => {
+      if (err) {
+        console.err("No se pudo abrir la base de datos.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  );
+  if (dataBase != null) {
+    returnValue =
+      dataBase.run(`SELECT empleados.id, empleados.nombreCompleto, empleados.fechaNacimiento, empleados.esDesarrollador, empleados.descripcion, oficina.area
+    FROM empleados INNER JOIN oficina WHERE empleados.areaId = oficina.id`);
+    dataBase.close();
+  }
+  return returnValue;
+}
