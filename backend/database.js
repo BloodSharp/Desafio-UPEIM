@@ -4,6 +4,7 @@ const fs = require("fs");
 let createEmployeesTable = `CREATE TABLE "empleados" (
 	"id"	INTEGER NOT NULL UNIQUE,
 	"nombreCompleto"	TEXT NOT NULL,
+  "documentoIdentidad" INTEGER NOT NULL UNIQUE,
 	"fechaNacimiento"	INTEGER NOT NULL,
 	"esDesarrollador"	INTEGER NOT NULL,
 	"descripcion"	TEXT,
