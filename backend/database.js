@@ -240,3 +240,24 @@ function insertArea(dataBaseName, areaName) {
   }
   return returnValue;
 }
+
+function getAreasSize(dataBaseName, areaName) {
+  let returnValue = null;
+  dataBase = new sqlite3.Database(
+    dataBaseName,
+    sqlite3.OPEN_READWRITE,
+    (err) => {
+      if (err) {
+        console.err("No se pudo abrir la base de datos.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  );
+  if (dataBase != null) {
+    returnValue = dataBase.run(`SELECT COUNT(*) FROM oficina`);
+    dataBase.close();
+  }
+  return returnValue;
+}
