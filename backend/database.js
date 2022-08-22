@@ -188,6 +188,7 @@ function updateEmployeesById(
   dataBaseName,
   id,
   employeeName,
+  documentId,
   birthDate,
   isDeveloper,
   description,
@@ -210,6 +211,7 @@ function updateEmployeesById(
     returnValue = dataBase.run(
       `UPDATE "empleados" SET
       "nombreCompleto" = "${employeeName}",
+      "documentoIdentidad" = '${documentId}',
       "fechaNacimiento" = '${birthDate}',
       "esDesarrollador" = '${isDeveloper}',
       "descripcion" = "${description}",
