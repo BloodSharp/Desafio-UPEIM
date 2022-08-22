@@ -261,3 +261,14 @@ function getAreasSize(dataBaseName, areaName) {
   }
   return returnValue;
 }
+
+module.exports = {
+  generateIfDoesntExist,
+  insertEmployee,
+  getEmployees,
+  getEmployeesByName,
+  updateEmployeesById,
+  getAllAreas,
+  insertArea,
+  getAreasSize,
+};
