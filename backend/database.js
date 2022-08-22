@@ -82,3 +82,33 @@ function generateIfDoesntExist(dataBaseName) {
     }
   }
 }
+
+function insertEmployee(
+  dataBaseName,
+  employeeName,
+  birthDate,
+  isDeveloper,
+  description,
+  areaId
+) {
+  let returnValue = null;
+  dataBase = new sqlite3.Database(
+    dataBaseName,
+    sqlite3.OPEN_READWRITE,
+    (err) => {
+      if (err) {
+        console.err("No se pudo abrir la base de datos.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  );
+  if (dataBase != null) {
+    returnValue = dataBase.run(`INSERT INTO "empleados"
+    ("nombreCompleto", "fechaNacimiento", "esDesarrollador", "descripcion", "areaId")
+    VALUES ('${employeeName}', ${birthDate}, '${isDeveloper}', '${description}', ${areaId});`);
+    dataBase.close();
+  }
+  return returnValue;
+}
