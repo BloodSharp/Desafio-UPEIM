@@ -115,7 +115,7 @@ function insertEmployee(
   return returnValue;
 }
 
-function getEmployees(dataBaseName) {
+function getEmployees(dataBaseName, res) {
   let returnValue = null;
   dataBase = new sqlite3.Database(
     dataBaseName,
@@ -130,9 +130,18 @@ function getEmployees(dataBaseName) {
     }
   );
   if (dataBase != null) {
-    returnValue =
-      dataBase.run(`SELECT empleados.id, empleados.nombreCompleto, empleados.fechaNacimiento, empleados.esDesarrollador, empleados.descripcion, oficina.area
-    FROM empleados INNER JOIN oficina WHERE empleados.areaId = oficina.id`);
+    returnValue = dataBase.all(
+      `SELECT empleados.id, empleados.nombreCompleto, empleados.documentoIdentidad, empleados.fechaNacimiento, empleados.esDesarrollador, empleados.descripcion, oficina.area
+        FROM empleados INNER JOIN oficina WHERE empleados.areaId = oficina.id`,
+      [],
+      (err, rows) => {
+        if (err) {
+          res.json(null);
+          return;
+        }
+        res.json(rows);
+      }
+    );
     dataBase.close();
   }
   return returnValue;
