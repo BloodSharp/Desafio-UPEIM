@@ -196,3 +196,24 @@ function updateEmployeesById(
   }
   return returnValue;
 }
+
+function getAllAreas(dataBaseName) {
+  let returnValue = null;
+  dataBase = new sqlite3.Database(
+    dataBaseName,
+    sqlite3.OPEN_READWRITE,
+    (err) => {
+      if (err) {
+        console.err("No se pudo abrir la base de datos.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  );
+  if (dataBase != null) {
+    returnValue = dataBase.run("SELECT area FROM oficina");
+    dataBase.close();
+  }
+  return returnValue;
+}
