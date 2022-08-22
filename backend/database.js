@@ -87,6 +87,7 @@ function generateIfDoesntExist(dataBaseName) {
 function insertEmployee(
   dataBaseName,
   employeeName,
+  documentId,
   birthDate,
   isDeveloper,
   description,
@@ -107,8 +108,8 @@ function insertEmployee(
   );
   if (dataBase != null) {
     returnValue = dataBase.run(`INSERT INTO "empleados"
-    ("nombreCompleto", "fechaNacimiento", "esDesarrollador", "descripcion", "areaId")
-    VALUES ('${employeeName}', ${birthDate}, '${isDeveloper}', '${description}', ${areaId});`);
+    ("nombreCompleto", "documentoIdentidad", "fechaNacimiento", "esDesarrollador", "descripcion", "areaId")
+    VALUES ('${employeeName}', ${documentId}, ${birthDate}, '${isDeveloper}', '${description}', ${areaId});`);
     dataBase.close();
   }
   return returnValue;
