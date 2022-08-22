@@ -147,7 +147,7 @@ function getEmployees(dataBaseName, res) {
   return returnValue;
 }
 
-function getEmployeesByName(dataBaseName, employeeName) {
+function getEmployeesByName(dataBaseName, res, employeeName) {
   let returnValue = null;
   dataBase = new sqlite3.Database(
     dataBaseName,
@@ -162,9 +162,22 @@ function getEmployeesByName(dataBaseName, employeeName) {
     }
   );
   if (dataBase != null) {
-    returnValue = dataBase.run(
-      `SELECT empleados.id, empleados.nombreCompleto, empleados.fechaNacimiento, empleados.esDesarrollador, empleados.descripcion, oficina.area
-      FROM empleados INNER JOIN oficina WHERE empleados.nombreCompleto like '%${employeeName}%' AND empleados.areaId = oficina.id`
+    returnValue = dataBase.all(
+      `SELECT empleados.id, empleados.nombreCompleto, empleados.documentoIdentidad, empleados.fechaNacimiento, empleados.esDesarrollador, empleados.descripcion, oficina.area
+      FROM empleados INNER JOIN oficina WHERE empleados.nombreCompleto like '%${employeeName}%' AND empleados.areaId = oficina.id`,
+      [],
+      (err, rows) => {
+        if (err) {
+          res.json(null);
+          return;
+        }
+        res.json(rows);
+      }
+    );
+    dataBase.close();
+  }
+  return returnValue;
+}
     );
     dataBase.close();
   }
