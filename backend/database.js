@@ -217,3 +217,26 @@ function getAllAreas(dataBaseName) {
   }
   return returnValue;
 }
+
+function insertArea(dataBaseName, areaName) {
+  let returnValue = null;
+  dataBase = new sqlite3.Database(
+    dataBaseName,
+    sqlite3.OPEN_READWRITE,
+    (err) => {
+      if (err) {
+        console.err("No se pudo abrir la base de datos.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  );
+  if (dataBase != null) {
+    returnValue = dataBase.run(
+      `INSERT INTO oficina("area") VALUES ('${areaName}')`
+    );
+    dataBase.close();
+  }
+  return returnValue;
+}
