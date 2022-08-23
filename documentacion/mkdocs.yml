@@ -5,4 +5,5 @@ nav:
   - Backend: backend.md
   - Base de datos: database.md
   - Frontend: frontend.md
+  - Documentación de esta página: documentation.md
 theme: readthedocs
