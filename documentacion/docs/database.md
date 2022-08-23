@@ -51,6 +51,11 @@ SELECT
 La siguiente instrucción obtiene todos los empleados y el área a la cual pertenece filtrando por su nombre.
 
 ```SQL
-SELECT empleados.id, empleados.nombreCompleto, empleados.documentoIdentidad, empleados.fechaNacimiento, empleados.esDesarrollador, empleados.descripcion, oficina.area
-      FROM empleados INNER JOIN oficina WHERE empleados.nombreCompleto like '%Nombre a buscar%' AND empleados.areaId = oficina.id
+SELECT
+    empleados.id, empleados.nombreCompleto, empleados.documentoIdentidad,
+    empleados.fechaNacimiento, empleados.esDesarrollador,
+    empleados.descripcion, oficina.area
+    FROM empleados INNER JOIN oficina
+    WHERE empleados.nombreCompleto like '%Nombre a buscar%'
+    AND empleados.areaId = oficina.id
 ```
