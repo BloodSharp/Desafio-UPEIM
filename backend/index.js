@@ -44,7 +44,13 @@ app.post("/upeim/api/add-employee", (req, res) => {
   res.json({ resultado: true });
 });
 
-app.delete("/upeim/api/remove-employee", (req, res) => {});
+app.delete("/upeim/api/remove-employee", async (req, res) => {
+  if (req.body.id == null) {
+    res.status(400).json({ resultado: false });
+    return;
+  }
+  await upeimDatabase.removeEmployeeById(dataBaseName, res, req.body.id);
+});
 
 app.put("/upeim/api/edit-employee", async (req, res) => {
   if (
