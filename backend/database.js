@@ -249,6 +249,32 @@ function updateEmployeesById(
       "descripcion" = "${description}",
       "areaId" = '${areaId}'
       WHERE empleados.id = ${id}`
+
+function removeEmployeeById(dataBaseName, res, id) {
+  let returnValue = null;
+  dataBase = new sqlite3.Database(
+    dataBaseName,
+    sqlite3.OPEN_READWRITE,
+    (err) => {
+      if (err) {
+        console.error("No se pudo abrir la base de datos.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  );
+  if (dataBase != null) {
+    returnValue = dataBase.run(
+      `DELETE FROM "empleados" WHERE id = ${id};`,
+      [],
+      (err) => {
+        if (err) {
+          res.status(400).json({ resultado: false });
+          return;
+        }
+        res.json({ resultado: true });
+      }
     );
     dataBase.close();
   }
@@ -327,6 +353,7 @@ module.exports = {
   getEmployeesSize,
   getEmployeesByName,
   updateEmployeesById,
+  removeEmployeeById,
   getAllAreas,
   insertArea,
   getAreasSize,
