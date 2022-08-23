@@ -4,9 +4,10 @@ Este es el sitio web de la documentación del desafío para ingreso a la Unidad 
 
 ## Enlaces de navegación de la documentación
 
-- Ver la documentación para el [backend](/backend/) (Servidor).
-- Ver la documentación para la [base de datos](/database/)
-- Ver la documentación para el [frontend](/frontend/) (Página web).
+- Ver la documentación para el [backend](backend/) (Servidor).
+- Ver la documentación para la [base de datos](database/).
+- Ver la documentación para el [frontend](frontend/) (Página web).
+- Ver la documentación para [mkdocs](documentation/) (Documentación de esta página web).
 
 ## Instrucciones del desafío
 
