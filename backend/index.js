@@ -20,7 +20,7 @@ app.post("/upeim/api/get-employee-by-name", async (req, res) => {
   );
 });
 
-app.post("/upeim/api/add-employee", (req, res) => {
+app.post("/upeim/api/add-employee", async (req, res) => {
   if (
     req.body.nombreCompleto == null ||
     req.body.documentoIdentidad == null ||
@@ -32,8 +32,9 @@ app.post("/upeim/api/add-employee", (req, res) => {
     res.status(400).json({ resultado: false });
     return;
   }
-  upeimDatabase.insertEmployee(
+  await upeimDatabase.insertEmployee(
     dataBaseName,
+    res,
     req.body.nombreCompleto,
     req.body.documentoIdentidad,
     req.body.fechaNacimiento,
@@ -41,7 +42,6 @@ app.post("/upeim/api/add-employee", (req, res) => {
     req.body.descripcion,
     req.body.areaId
   );
-  res.json({ resultado: true });
 });
 
 app.delete("/upeim/api/remove-employee", async (req, res) => {
