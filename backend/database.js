@@ -218,6 +218,7 @@ function getEmployeesSize(dataBaseName, response) {
 
 function updateEmployeesById(
   dataBaseName,
+  res,
   id,
   employeeName,
   documentId,
@@ -248,7 +249,20 @@ function updateEmployeesById(
       "esDesarrollador" = '${isDeveloper}',
       "descripcion" = "${description}",
       "areaId" = '${areaId}'
-      WHERE empleados.id = ${id}`
+      WHERE empleados.id = ${id}`,
+      [],
+      (err) => {
+        if (err) {
+          res.status(400).json({ resultado: false });
+          return;
+        }
+        res.json({ resultado: true });
+      }
+    );
+    dataBase.close();
+  }
+  return returnValue;
+}
 
 function removeEmployeeById(dataBaseName, res, id) {
   let returnValue = null;
