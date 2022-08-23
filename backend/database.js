@@ -7,7 +7,7 @@ let createEmployeesTable = `CREATE TABLE "empleados" (
   "documentoIdentidad" INTEGER NOT NULL UNIQUE,
 	"fechaNacimiento"	INTEGER NOT NULL,
 	"esDesarrollador"	INTEGER NOT NULL,
-	"descripcion"	TEXT,
+	"descripcion"	TEXT NOT NULL,
 	"areaId"	INTEGER NOT NULL,
 	FOREIGN KEY("areaId") REFERENCES "oficina"("id"),
 	PRIMARY KEY("id" AUTOINCREMENT)
