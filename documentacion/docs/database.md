@@ -6,6 +6,8 @@ Se ha elegido el tipo de base de datos sqlite3 por su sencillez para proyectos p
 
 ## Diagrama Entidad Relación
 
+Se ha creado dos tablas según lo requerido, una para los empleados y la segunda tabla para el área del sector que pertenece el empleado. En ambos casos las columnas id son **Primary key**, la columna **esDesarrollador** es de tipo entero debido a que sqlite3 no soporta booleanos. En la tabla empleados la columna **areaId** es una **Foreign key** relacionada con el **id** de la tabla oficina.
+
 ![Imagen del Diagrama](img/DER.png)
 
 ## Consultas SQL
