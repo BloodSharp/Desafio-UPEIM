@@ -28,7 +28,7 @@ function generateIfDoesntExist(dataBaseName) {
         sqlite3.OPEN_READWRITE,
         (err) => {
           if (err) {
-            console.err("No se pudo abrir la base de datos.");
+            console.error("No se pudo abrir la base de datos.");
             return false;
           } else {
             return true;
@@ -45,7 +45,7 @@ function generateIfDoesntExist(dataBaseName) {
         sqlite3.OPEN_READWRITE,
         (err) => {
           if (err) {
-            console.err("No se pudo abrir la base de datos.");
+            console.error("No se pudo abrir la base de datos.");
             return false;
           } else {
             return true;
@@ -67,7 +67,7 @@ function generateIfDoesntExist(dataBaseName) {
       sqlite3.OPEN_READWRITE,
       (err) => {
         if (err) {
-          console.err("No se pudo abrir la base de datos.");
+          console.error("No se pudo abrir la base de datos.");
           return false;
         } else {
           return true;
@@ -99,7 +99,7 @@ function insertEmployee(
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -132,7 +132,7 @@ function getEmployees(dataBaseName, res) {
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -164,7 +164,7 @@ function getEmployeesByName(dataBaseName, res, employeeName) {
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -196,7 +196,7 @@ function getEmployeesSize(dataBaseName, response) {
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -232,7 +232,7 @@ function updateEmployeesById(
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -288,7 +288,7 @@ function getAllAreas(dataBaseName) {
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -309,7 +309,7 @@ function insertArea(dataBaseName, areaName) {
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
@@ -332,7 +332,7 @@ function getAreasSize(dataBaseName, areaName) {
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
-        console.err("No se pudo abrir la base de datos.");
+        console.error("No se pudo abrir la base de datos.");
         return false;
       } else {
         return true;
