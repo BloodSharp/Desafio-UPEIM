@@ -1,0 +1,8 @@
+site_name: Desafío UPEIM
+site_url: https://bloodsharp.github.io/UPEIM/
+nav:
+  - Inicio: index.md
+  - Backend: backend.md
+  - Base de datos: database.md
+  - Frontend: frontend.md
+theme: readthedocs
