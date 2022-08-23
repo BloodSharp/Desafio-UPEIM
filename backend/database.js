@@ -107,9 +107,19 @@ function insertEmployee(
     }
   );
   if (dataBase != null) {
-    returnValue = dataBase.run(`INSERT INTO "empleados"
+    returnValue = dataBase.run(
+      `INSERT INTO "empleados"
     ("nombreCompleto", "documentoIdentidad", "fechaNacimiento", "esDesarrollador", "descripcion", "areaId")
-    VALUES ('${employeeName}', ${documentId}, ${birthDate}, '${isDeveloper}', '${description}', ${areaId});`);
+    VALUES ('${employeeName}', ${documentId}, ${birthDate}, '${isDeveloper}', '${description}', ${areaId});`,
+      [],
+      (err) => {
+        if (err) {
+          res.status(400).json({ resultado: false });
+          return;
+        }
+        res.json({ resultado: true });
+      }
+    );
     dataBase.close();
   }
   return returnValue;
