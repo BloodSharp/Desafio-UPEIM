@@ -21,6 +21,11 @@ function AddEmployees() {
         </Row>
         <Row>
           <Col>
+            <br />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <InsertEmployee />
           </Col>
         </Row>
