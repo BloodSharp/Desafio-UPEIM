@@ -9,12 +9,12 @@ import Col from "react-bootstrap/Col";
 
 function Frontpage() {
   return (
-    <Container className="FrontPage-header">
+    <Container>
       <Row>
-        <Col>
+        <Col className="FrontPage-header">
           <LogoBA />
           <p>Desafío de ingreso UPEIM</p>
-          <p>Agustín dos Santos</p>
+          <p>por Agustín dos Santos</p>
           <ButtonGroup>
             <Button href="/add-employees" variant="warning">
               Añadir empleados
