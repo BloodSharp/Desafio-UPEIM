@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const upeimDatabase = require("./database.js");
 
 const dataBaseName = "./upeim.db";
@@ -7,6 +8,7 @@ upeimDatabase.generateIfDoesntExist(dataBaseName);
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/upeim/api/get-all-employees", async (req, res) => {
   await upeimDatabase.getEmployees(dataBaseName, res);
