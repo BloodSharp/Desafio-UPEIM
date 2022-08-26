@@ -209,33 +209,6 @@ function getEmployeesByName(dataBaseName, res, employeeName) {
   return returnValue;
 }
 
-function getEmployeesSize(dataBaseName, response) {
-  let returnValue = null;
-  dataBase = new sqlite3.Database(
-    dataBaseName,
-    sqlite3.OPEN_READWRITE,
-    (err) => {
-      if (err) {
-        console.error("No se pudo abrir la base de datos.");
-        return false;
-      } else {
-        return true;
-      }
-    }
-  );
-  if (dataBase != null) {
-    returnValue = dataBase.get(
-      `SELECT COUNT(*) FROM empleados`,
-      [],
-      (err, data) => {
-        response.size = data;
-      }
-    );
-    dataBase.close();
-  }
-  return returnValue;
-}
-
 function updateEmployeesById(
   dataBaseName,
   res,
