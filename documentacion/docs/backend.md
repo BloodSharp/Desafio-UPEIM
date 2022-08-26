@@ -49,7 +49,7 @@ npm test
     "documentoIdentidad": 987654321,
     "fechaNacimiento": 19920714,
     "esDesarrollador": "TRUE",
-    "descripcion": "abc",
+    "descripcion": "Desarrollador frontend",
     "area": "UPEIM"
   },
   {
@@ -86,7 +86,7 @@ Respuesta:
     "documentoIdentidad": 987654321,
     "fechaNacimiento": 19920714,
     "esDesarrollador": "TRUE",
-    "descripcion": "abc",
+    "descripcion": "Desarrollador frontend",
     "area": "UPEIM"
   }
 ]
