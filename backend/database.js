@@ -299,7 +299,7 @@ function removeEmployeeById(dataBaseName, res, id) {
   return returnValue;
 }
 
-function getAllAreas(dataBaseName) {
+function getAllAreas(dataBaseName, res) {
   let returnValue = null;
   dataBase = new sqlite3.Database(
     dataBaseName,
@@ -314,7 +314,14 @@ function getAllAreas(dataBaseName) {
     }
   );
   if (dataBase != null) {
-    returnValue = dataBase.run("SELECT area FROM oficina");
+    returnValue = dataBase.all(`SELECT * FROM "oficina"`, [], (err, rows) => {
+      if (err) {
+        console.error(err);
+        res.status(400).json([]);
+        return;
+      }
+      res.json(rows);
+    });
     dataBase.close();
   }
   return returnValue;
