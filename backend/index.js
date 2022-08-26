@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const upeimDatabase = require("./database.js");
+const sanitizer = require("./sanitizer.js");
 
 const dataBaseName = "./upeim.db";
 upeimDatabase.generateIfDoesntExist(dataBaseName);
@@ -15,6 +16,13 @@ app.get("/upeim/api/get-all-employees", async (req, res) => {
 });
 
 app.post("/upeim/api/get-employee-by-name", async (req, res) => {
+  if (
+    sanitizer.validateIsTextOnlyAndHasNoSymbols(req.body.nombreCompleto) ==
+    false
+  ) {
+    res.status(400).json([]);
+    return;
+  }
   await upeimDatabase.getEmployeesByName(
     dataBaseName,
     res,
@@ -24,12 +32,14 @@ app.post("/upeim/api/get-employee-by-name", async (req, res) => {
 
 app.post("/upeim/api/add-employee", async (req, res) => {
   if (
-    req.body.nombreCompleto == null ||
-    req.body.documentoIdentidad == null ||
-    req.body.fechaNacimiento == null ||
-    req.body.esDesarrollador == null ||
-    req.body.descripcion == null ||
-    req.body.areaId == null
+    sanitizer.validateIsTextOnlyAndHasNoSymbols(req.body.nombreCompleto) ==
+      false ||
+    sanitizer.validateIsInteger(req.body.documentoIdentidad) == false ||
+    sanitizer.validateIsInteger(req.body.fechaNacimiento) == false ||
+    sanitizer.validateIsBoolean(req.body.esDesarrollador) == false ||
+    sanitizer.validateIsTextOnlyAndHasNoSymbols(req.body.descripcion) ==
+      false ||
+    sanitizer.validateIsInteger(req.body.areaId) == false
   ) {
     res.status(400).json({ resultado: false });
     return;
@@ -47,7 +57,7 @@ app.post("/upeim/api/add-employee", async (req, res) => {
 });
 
 app.delete("/upeim/api/remove-employee", async (req, res) => {
-  if (req.body.id == null) {
+  if (sanitizer.validateIsInteger(req.body.id)) {
     res.status(400).json({ resultado: false });
     return;
   }
@@ -56,13 +66,15 @@ app.delete("/upeim/api/remove-employee", async (req, res) => {
 
 app.put("/upeim/api/edit-employee", async (req, res) => {
   if (
-    req.body.id == null ||
-    req.body.nombreCompleto == null ||
-    req.body.documentoIdentidad == null ||
-    req.body.fechaNacimiento == null ||
-    req.body.esDesarrollador == null ||
-    req.body.descripcion == null ||
-    req.body.areaId == null
+    sanitizer.validateIsInteger(req.body.id) == false ||
+    sanitizer.validateIsTextOnlyAndHasNoSymbols(req.body.nombreCompleto) ==
+      false ||
+    sanitizer.validateIsInteger(req.body.documentoIdentidad) == false ||
+    sanitizer.validateIsInteger(req.body.fechaNacimiento) == false ||
+    sanitizer.validateIsBoolean(req.body.esDesarrollador) == false ||
+    sanitizer.validateIsTextOnlyAndHasNoSymbols(req.body.descripcion) ==
+      false ||
+    sanitizer.validateIsInteger(req.body.areaId) == false
   ) {
     res.status(400).json({ resultado: false });
     return;
