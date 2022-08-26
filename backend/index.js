@@ -80,6 +80,10 @@ app.put("/upeim/api/edit-employee", async (req, res) => {
   );
 });
 
+app.get("/upeim/api/get-all-areas", async (req, res) => {
+  await upeimDatabase.getAllAreas(dataBaseName, res);
+});
+
 app.listen(1337, () => {
   console.log("Iniciando servidor en puerto 1337...");
 });
