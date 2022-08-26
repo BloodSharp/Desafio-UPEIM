@@ -40,7 +40,7 @@ app.post("/upeim/api/add-employee", async (req, res) => {
     req.body.nombreCompleto,
     req.body.documentoIdentidad,
     req.body.fechaNacimiento,
-    req.body.esDesarrollador.toUpperCase(),
+    req.body.esDesarrollador.toString().toUpperCase(),
     req.body.descripcion,
     req.body.areaId
   );
