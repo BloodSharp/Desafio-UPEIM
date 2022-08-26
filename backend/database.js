@@ -349,7 +349,6 @@ module.exports = {
   generateIfDoesntExist,
   insertEmployee,
   getEmployees,
-  getEmployeesSize,
   getEmployeesByName,
   updateEmployeesById,
   removeEmployeeById,
