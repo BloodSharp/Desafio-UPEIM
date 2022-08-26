@@ -17,6 +17,22 @@ Ingresar a la terminal en la carpeta backend y luego ingresar el siguiente coman
 npm install
 ```
 
+## Iniciando el servidor
+
+Debe primero ingresar a la carpeta backend del proyecto y luego escribir el siguiente comando:
+
+```bash
+npm start
+```
+
+## Probando el código
+
+Debe primero ingresar a la carpeta backend del proyecto y luego escribir el siguiente comando:
+
+```bash
+npm test
+```
+
 ## Documentación de los endpoints
 
 ### `/upeim/api/get-all-employees`
