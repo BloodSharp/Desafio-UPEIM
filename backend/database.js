@@ -86,6 +86,7 @@ function generateIfDoesntExist(dataBaseName) {
 
 function insertEmployee(
   dataBaseName,
+  res,
   employeeName,
   documentId,
   birthDate,
