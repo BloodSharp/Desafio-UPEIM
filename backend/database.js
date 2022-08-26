@@ -53,7 +53,15 @@ function generateIfDoesntExist(dataBaseName) {
         }
       );
       if (dataBase != null) {
-        dataBase.run(createOfficeTable);
+        dataBase.run(createOfficeTable, [], (err) => {
+          if (err) {
+            console.error(err);
+          } else {
+            insertArea(dataBaseName, "SS. Gestión de la movilidad");
+            insertArea(dataBaseName, "SS. Planificación de la movilidad");
+            insertArea(dataBaseName, "SS. Obras");
+          }
+        });
 
         dataBase.run(createEmployeesTable);
 
@@ -75,7 +83,15 @@ function generateIfDoesntExist(dataBaseName) {
       }
     );
     if (dataBase != null) {
-      dataBase.run(createOfficeTable);
+      dataBase.run(createOfficeTable, [], (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          insertArea(dataBaseName, "SS. Gestión de la movilidad");
+          insertArea(dataBaseName, "SS. Planificación de la movilidad");
+          insertArea(dataBaseName, "SS. Obras");
+        }
+      });
 
       dataBase.run(createEmployeesTable);
 
