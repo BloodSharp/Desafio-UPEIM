@@ -6,6 +6,7 @@ La siguiente es una lista de dependencias requeridas por el servidor:
 
 - **express** versión 4.18.1
 - **sqlite3** versión 5.0.11
+- **cors** versión 2.8.5
 
 ### Instalación de dependencias
 
