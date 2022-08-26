@@ -115,6 +115,7 @@ function insertEmployee(
       [],
       (err) => {
         if (err) {
+          console.error(err);
           res.status(400).json({ resultado: false });
           return;
         }
@@ -147,6 +148,7 @@ function getEmployees(dataBaseName, res) {
       [],
       (err, rows) => {
         if (err) {
+          console.error(err);
           res.json(null);
           return;
         }
@@ -179,6 +181,7 @@ function getEmployeesByName(dataBaseName, res, employeeName) {
       [],
       (err, rows) => {
         if (err) {
+          console.error(err);
           res.json(null);
           return;
         }
