@@ -20,15 +20,64 @@ npm install
 
 ### `/upeim/api/get-all-employees`
 
-Obtiene la lista de todos los empleados de la base de datos.
+**(Método GET)** Obtiene la lista de todos los empleados de la base de datos.
+
+#### Ejemplo
+
+```json
+[
+  {
+    "id": 1,
+    "nombreCompleto": "Agustín dos Santos",
+    "documentoIdentidad": 987654321,
+    "fechaNacimiento": 19920714,
+    "esDesarrollador": "TRUE",
+    "descripcion": "abc",
+    "area": "UPEIM"
+  },
+  {
+    "id": 2,
+    "nombreCompleto": "Federico dos Santos",
+    "documentoIdentidad": 123456789,
+    "fechaNacimiento": 19960906,
+    "esDesarrollador": "FALSE",
+    "descripcion": "DataEntry",
+    "area": "Globant"
+  }
+]
+```
 
 ### `/upeim/api/get-employee-by-name`
 
-Obtiene la lista de todos los empleados de la base de datos en cuyos casos coincidan con el parámetro **nombreCompleto** del cuerpo de la petición.
+**(Método POST)** Obtiene la lista de todos los empleados de la base de datos en cuyos casos coincidan con el parámetro **nombreCompleto** del cuerpo de la petición.
+
+#### Ejemplo
+
+```json
+{
+  "nombreCompleto": "Ag"
+}
+```
+
+Respuesta:
+
+```json
+[
+  {
+    "id": 1,
+    "nombreCompleto": "Agustín dos Santos",
+    "documentoIdentidad": 987654321,
+    "fechaNacimiento": 19920714,
+    "esDesarrollador": "TRUE",
+    "descripcion": "abc",
+    "area": "UPEIM"
+  }
+]
+```
 
 ### `/upeim/api/add-employee`
 
-Añade un empleado a la base de datos utilizando los parámetros del cuerpo de la petición. Si algunos de los parámetros es nulo retorna el resultado de **petición errónea** al cliente.
+**(Método POST)** Añade un empleado a la base de datos utilizando los parámetros del cuerpo de la petición. Si algunos de los parámetros es inválido retorna el resultado de **petición errónea** al cliente.
 
 #### Ejemplo
 
@@ -45,7 +94,7 @@ Añade un empleado a la base de datos utilizando los parámetros del cuerpo de l
 
 ### `/upeim/api/remove-employee`
 
-Remueve un empleado de la base de datos utilizando el id del empleado en el cuerpo de la petición. Si el id en los parámetros es nulo retorna el resultado de **petición errónea** al cliente.
+**(Método DELETE)** Remueve un empleado de la base de datos utilizando el id del empleado en el cuerpo de la petición. Si el id en los parámetros es inválido retorna el resultado de **petición errónea** al cliente.
 
 #### Ejemplo
 
@@ -57,17 +106,42 @@ Remueve un empleado de la base de datos utilizando el id del empleado en el cuer
 
 ### `/upeim/api/edit-employee`
 
-Actualiza los datos de un empleado de la base de datos utilizando el id del empleado y el resto de los parámetros en el cuerpo de la petición. Si alguno de los parámetros es nulo retorna el resultado de **petición errónea** al cliente.
+**(Método POST)** Actualiza los datos de un empleado de la base de datos utilizando el id del empleado y el resto de los parámetros en el cuerpo de la petición. Si alguno de los parámetros es inválido retorna el resultado de **petición errónea** al cliente.
 
 #### Ejemplo
 
 ```json
-{
-  "nombreCompleto": "Federico dos Santos",
-  "documentoIdentidad": 87654321,
-  "fechaNacimiento": 19960906,
-  "esDesarrollador": "false",
-  "descripcion": "Data entry",
-  "areaId": 1
-}
+[
+  {
+    "nombreCompleto": "Federico dos Santos",
+    "documentoIdentidad": 87654321,
+    "fechaNacimiento": 19960906,
+    "esDesarrollador": "false",
+    "descripcion": "Data entry",
+    "areaId": 1
+  }
+]
+```
+
+### `/upeim/api/get-all-areas`
+
+**(Método GET)** Obtiene la lista de todas las áreas disponibles de la base de datos.
+
+#### Ejemplo
+
+```json
+[
+  {
+    "id": 1,
+    "area": "SS. Gestión de la movilidad"
+  },
+  {
+    "id": 2,
+    "area": "SS. Obras"
+  },
+  {
+    "id": 3,
+    "area": "SS. Planificación de la movilidad"
+  }
+]
 ```
