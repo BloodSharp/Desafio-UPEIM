@@ -343,7 +343,13 @@ function insertArea(dataBaseName, areaName) {
   );
   if (dataBase != null) {
     returnValue = dataBase.run(
-      `INSERT INTO oficina("area") VALUES ('${areaName}')`
+      `INSERT INTO oficina("area") VALUES ('${areaName}')`,
+      [],
+      (err) => {
+        if (err) {
+          console.error(err);
+        }
+      }
     );
     dataBase.close();
   }
