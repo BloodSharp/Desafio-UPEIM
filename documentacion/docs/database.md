@@ -59,3 +59,48 @@ SELECT
     WHERE empleados.nombreCompleto like '%Nombre a buscar%'
     AND empleados.areaId = oficina.id
 ```
+
+### Modificar de los empleados la base de datos
+
+La siguiente instrucción de ejemplo agrega un empleado a la base de datos.
+
+```SQL
+INSERT INTO "empleados"
+    ("nombreCompleto", "documentoIdentidad", "fechaNacimiento",
+    "esDesarrollador", "descripcion", "areaId")
+    VALUES ('Agustín dos Santos', 123456789, 19920714,
+    'TRUE', 'Desarrollador frontend', 1);
+```
+
+La siguiente instrucción de ejemplo modifica un empleado mediante su número de identificación de la base de datos.
+
+```SQL
+UPDATE "empleados" SET
+      "nombreCompleto" = "Federico dos Santos",
+      "documentoIdentidad" = '987654321',
+      "fechaNacimiento" = '19960906',
+      "esDesarrollador" = 'FALSE',
+      "descripcion" = "DataEntry",
+      "areaId" = '1'
+      WHERE empleados.id = 1
+```
+
+La siguiente instrucción de ejemplo elimina un empleado mediante su número de identificación de la base de datos.
+
+```SQL
+DELETE FROM "empleados" WHERE id = 1;
+```
+
+### Área de empleados
+
+La siguiente instrucción de ejemplo obtiene la identifiación y el nombre todas las áreas disponible de la base de datos.
+
+```SQL
+SELECT * FROM "oficina"
+```
+
+La siguiente instrucción de ejemplo añade un área a la tabla oficina de la base de datos.
+
+```SQL
+INSERT INTO oficina("area") VALUES ('SS. Gestión de la movilidad')
+```
