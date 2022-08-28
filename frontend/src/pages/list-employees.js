@@ -1,7 +1,7 @@
 import NavigationBar from "./components/nav-bar";
 import LogoBA from "./components/logo-ba";
 
-import Container from "react-bootstrap/esm/Container";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import GetEmployeesForm from "./components/get-employees";
