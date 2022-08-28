@@ -1,17 +1,10 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/esm/Col";
 import Form from "react-bootstrap/Form";
 
-import Toast from "react-bootstrap/Toast";
-import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/Row";
+import toast, { Toaster } from "react-hot-toast";
 
 function InsertEmployee() {
-  // Usado para mostrar el Toast
-  const [show, setShow] = useState(false);
-  const [showError, setShowError] = useState(false);
-
   // Para escoger las áreas
   const [areas, setAreas] = useState([]);
 
@@ -80,14 +73,20 @@ function InsertEmployee() {
       .then((res) => res.json())
       .catch((error) => {
         console.error("Error:", error);
-        setShowError(true);
+        toast.error("¡Hubo un error al añadir el empleado!", {
+          style: { background: "#ffc107", color: "#000" },
+        });
       })
       .then((reqResponse) => {
         console.log("Success:", reqResponse);
         if (reqResponse.resultado === true) {
-          setShow(true);
+          toast.success("¡Perfecto, el empleado fue añadido exitosamente!", {
+            style: { background: "#ffc107", color: "#000" },
+          });
         } else {
-          setShowError(true);
+          toast.error("¡Hubo un error al añadir el empleado!", {
+            style: { background: "#ffc107", color: "#000" },
+          });
         }
       });
   }
@@ -162,47 +161,11 @@ function InsertEmployee() {
             })}
           </Form.Select>
         </Form.Group>
-        <Container>
-          <Row>
-            <Col>
-              <Button variant="warning" type="submit">
-                Agregar empleado
-              </Button>
-            </Col>
-            <Col>
-              <Toast
-                position="top-end"
-                onClose={() => setShow(false)}
-                show={show}
-                delay={3000}
-                autohide
-              >
-                <Toast.Header>
-                  <strong className="me-auto">Empleado agregado</strong>
-                </Toast.Header>
-                <Toast.Body>
-                  ¡Perfecto, el empleado fue añadido exitosamente!
-                </Toast.Body>
-              </Toast>
-
-              <Toast
-                position="top-end"
-                onClose={() => setShowError(false)}
-                show={showError}
-                delay={3000}
-                autohide
-              >
-                <Toast.Header>
-                  <strong className="me-auto">
-                    El Empleado no fue agregado
-                  </strong>
-                </Toast.Header>
-                <Toast.Body>¡Hubo un error al añadir el empleado!</Toast.Body>
-              </Toast>
-            </Col>
-          </Row>
-        </Container>
+        <Button variant="warning" className="mb-3" type="submit">
+          Agregar empleado
+        </Button>
       </Form>
+      <Toaster position="bottom-center" />
     </div>
   );
 }
