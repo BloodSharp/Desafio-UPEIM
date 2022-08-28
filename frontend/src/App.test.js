@@ -1,10 +1,16 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import App from "./App";
 
-/*
-test('renders learn react link', () => {
+afterEach(cleanup);
+
+it("Renderiza la página principal", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const challengeText = screen.getByText("Desafío de ingreso UPEIM");
+  const challengeAddEmployeeButtonText = screen.getByText("Añadir empleados");
+  const challengeListEmployeesButtonText = screen.getByText("Listar empleados");
+
+  expect(challengeText).toBeInTheDocument();
+  expect(challengeAddEmployeeButtonText).toBeInTheDocument();
+  expect(challengeListEmployeesButtonText).toBeInTheDocument();
 });
-*/
