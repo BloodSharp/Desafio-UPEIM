@@ -11,6 +11,7 @@ La siguiente es una lista de dependencias requeridas por el servidor:
 - **react** versión 18.2.0
 - **react-bootstrap** versión 2.5.0
 - **react-dom** versión 18.2.0
+- **react-hot-toast** versión 2.3.0
 - **react-router-dom** versión 6.3.0
 - **react-scripts** versión 5.0.1
 - **web-vitals** versión 2.1.4
