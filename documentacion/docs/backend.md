@@ -19,7 +19,7 @@ npm install
 
 ## Iniciando el servidor
 
-Debe primero ingresar a la carpeta backend del proyecto y luego escribir el siguiente comando:
+Debe primero ingresar a la carpeta backend del proyecto desde la terminal y luego escribir el siguiente comando:
 
 ```bash
 npm start
@@ -27,7 +27,7 @@ npm start
 
 ## Probando el código
 
-Debe primero ingresar a la carpeta backend del proyecto y luego escribir el siguiente comando:
+Debe primero ingresar a la carpeta backend del proyecto desde la terminal y luego escribir el siguiente comando:
 
 ```bash
 npm test
