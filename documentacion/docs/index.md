@@ -2,6 +2,10 @@
 
 Este es el sitio web de la documentación del desafío para ingreso a la Unidad de Proyectos Especiales Gestión de Infraestructura de la Movilidad del gobierno de la ciudad de Buenos Aires.
 
+## Repositorio GIT
+
+El repositorio GIT del proyecto se encuentra en hospedado en [Github](https://github.com/BloodSharp/Desafio-UPEIM)
+
 ## Enlaces de navegación de la documentación
 
 - Ver la documentación para el [backend](backend/) (Servidor).
