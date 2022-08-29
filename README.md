@@ -6,7 +6,7 @@ Este es el repositorio GIT del desafío para ingreso a la Unidad de Proyectos Es
 
 - Ver la documentación para el [backend](backend/README.md) (Servidor).
 - Ver la documentación para el [frontend](frontend/README.md) (Página web).
-- Ver la documentación para generar el sitio web de la [documentación](documentation/README.md).
+- Ver la documentación para generar el sitio web de la [documentación](documentacion/README.md).
 
 ## Documentación online
 
